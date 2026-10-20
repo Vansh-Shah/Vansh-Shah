@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jas Enterprise</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Jas Enterprise, Ahmedabad: manufacturer and exporter of food processing machinery since 1990. ISO 9001 and HACCP. Exporting to 75+ countries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=JetBrains+Mono:wght@300&display=swap">
+<style>
+/* Layout: industrial catalogue (refero / teenage engineering). Light canvas, 1px rules,
+   0 radius, no shadows, one dark carbon band. Amber is the only colour, used once. */
+:root {
+  --canvas: #f6f8f7;
+  --paper: #ffffff;
+  --ink: #000000;
+  --muted: #5f6362;      /* graphite darkened to pass 4.5:1 on canvas */
+  --rule: #e5e5e5;
+  --rule-strong: #000000;
+  --carbon: #0f0e12;
+  --on-carbon: #f6f8f7;
+  --on-carbon-muted: #b2b2b2;
+  --amber: #f0a800;
+  --font: "Inter", "Suisse Int'l", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --s15: 15px; --s22: 22px; --s33: 33px; --s66: 66px;
+  --max: 1200px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --canvas: #0f0e12; --paper: #16151a; --ink: #f6f8f7; --muted: #a3a3a8;
+    --rule: #2a2930; --rule-strong: #f6f8f7; --carbon: #1c1b21; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --canvas: #0f0e12; --paper: #16151a; --ink: #f6f8f7; --muted: #a3a3a8;
+  --rule: #2a2930; --rule-strong: #f6f8f7; --carbon: #1c1b21; color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  margin: 0; background: var(--canvas); color: var(--ink);
+  font: 300 16px/1.5 var(--font); -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+h1, h2, h3 { font-weight: 200; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+
+.wrap {
+  max-width: var(--max); margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.label { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 16px; background: var(--ink); color: var(--canvas); padding: 8px 16px; z-index: 20; }
+
+/* nav */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--canvas); }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--canvas); border-bottom: 1px solid var(--rule); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s22); min-height: 66px; flex-wrap: wrap; }
+.mark { font-size: 22px; font-weight: 300; letter-spacing: -.01em; }
+.mark small { font-size: 13px; color: var(--muted); margin-left: 8px; }
+nav ul { list-style: none; display: flex; gap: var(--s22); margin: 0; padding: 0; flex-wrap: wrap; align-items: center; }
+nav a { display: inline-block; padding-block: 12px; font-size: 15px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 20px;
+  background: var(--ink); color: var(--canvas); font: 400 15px var(--font); border: 1px solid var(--ink);
+  cursor: pointer; transition: background .2s, color .2s;
+}
+.btn:hover { background: transparent; color: var(--ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--canvas); }
+@media (max-width: 720px) { nav .hide-sm { display: none; } }
+
+/* hero */
+.hero { border-bottom: 1px solid var(--rule); }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--s66); padding-block: var(--s66); align-items: center; }
+.hero h1 { font-size: clamp(40px, 6.4vw, 78px); line-height: 1.02; letter-spacing: -.035em; }
+.hero p.lede { font-size: 19px; max-width: 34ch; margin-top: var(--s33); color: var(--ink); }
+.hero .ctas { display: flex; gap: var(--s15); flex-wrap: wrap; margin-top: var(--s33); }
+.badge { display: inline-flex; align-items: center; gap: 10px; margin-bottom: var(--s22); }
+.badge svg { flex: none; }
+.plate { background: var(--paper); border: 1px solid var(--rule); min-width: 0; }
+.plate figcaption { display: flex; justify-content: space-between; gap: var(--s15); padding: 12px var(--s15); border-top: 1px solid var(--rule); flex-wrap: wrap; }
+.plate svg { display: block; width: 100%; height: auto; }
+.drw { fill: none; stroke: var(--ink); stroke-width: 1.2; }
+.drw-thin { fill: none; stroke: var(--muted); stroke-width: .8; }
+.dim { fill: var(--muted); font: 300 11px var(--mono); }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; gap: var(--s33); padding-block: var(--s33); } }
+
+/* figures band */
+.band { background: var(--carbon); color: var(--on-carbon); }
+.band .wrap { padding-block: var(--s66); }
+.figs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.figs div { padding: var(--s22) var(--s22) var(--s22) 0; border-left: 1px solid #ffffff22; padding-left: var(--s22); }
+.figs div:first-child { border-left: 0; padding-left: 0; }
+.figs b { display: block; font-weight: 200; font-size: clamp(36px, 5vw, 56px); line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.figs span { display: block; margin-top: 10px; font-size: 13px; color: var(--on-carbon-muted); letter-spacing: .06em; text-transform: uppercase; }
+@media (max-width: 720px) {
+  .figs { grid-template-columns: 1fr 1fr; }
+  .figs div { border-left: 0; padding-left: 0; border-top: 1px solid #ffffff22; }
+}
+
+/* sections */
+section.sec .wrap { padding-block: var(--s66); }
+.sec-head { display: grid; grid-template-columns: 1fr 2fr; gap: var(--s33); padding-bottom: var(--s33); border-bottom: 1px solid var(--rule-strong); align-items: end; }
+.sec-head h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.08; letter-spacing: -.02em; }
+.sec-head p { max-width: 60ch; color: var(--muted); }
+@media (max-width: 720px) { .sec-head { grid-template-columns: 1fr; gap: var(--s15); } }
+
+/* catalogue */
+.cat { display: grid; grid-template-columns: 220px 1fr; border-bottom: 1px solid var(--rule); }
+.cat > h3 { font-size: 13px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; padding: var(--s22) var(--s22) var(--s22) 0; }
+.cat ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border-left: 1px solid var(--rule); }
+.cat li { background: var(--canvas); min-width: 0; }
+.cat li a { display: flex; flex-direction: column; gap: 6px; height: 100%; padding: var(--s22); transition: background .2s; }
+.cat li a:hover { background: var(--paper); text-decoration: none; }
+.cat li a:hover .go { transform: translateX(4px); }
+.cat .name { font-size: 18px; font-weight: 300; line-height: 1.25; }
+.cat .what { font-size: 14px; color: var(--muted); }
+.cat .go { margin-top: auto; padding-top: 10px; font-size: 13px; transition: transform .2s; }
+@media (max-width: 960px) { .cat ul { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) {
+  .cat { grid-template-columns: 1fr; }
+  .cat > h3 { padding: var(--s22) 0 var(--s15); }
+  .cat ul { grid-template-columns: 1fr; border-left: 0; }
+  .cat li a { padding: var(--s15) 0; }
+}
+
+/* feature: dehydrators */
+.feature .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s66); align-items: center; }
+.feature h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.08; letter-spacing: -.02em; }
+.feature p { color: var(--on-carbon-muted); max-width: 48ch; margin-top: var(--s22); }
+.feature .btn { margin-top: var(--s33); background: var(--on-carbon); color: #0f0e12; border-color: var(--on-carbon); }
+.feature .btn:hover { background: transparent; color: var(--on-carbon); }
+.trays { display: grid; gap: 10px; }
+.trays div { height: 22px; border: 1px solid #ffffff33; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; font: 300 11px var(--mono); color: var(--on-carbon-muted); }
+@media (max-width: 860px) { .feature .wrap { grid-template-columns: 1fr; gap: var(--s33); } }
+
+/* strengths */
+.str { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border-bottom: 1px solid var(--rule); }
+.str div { background: var(--canvas); padding: var(--s33) var(--s22) var(--s33) 0; min-width: 0; }
+.str div + div { padding-left: var(--s22); }
+.str h3 { font-size: 20px; font-weight: 300; margin-bottom: 10px; }
+.str p { font-size: 15px; color: var(--muted); }
+@media (max-width: 960px) { .str { grid-template-columns: 1fr 1fr; } .str div:nth-child(3) { padding-left: 0; } }
+@media (max-width: 560px) { .str { grid-template-columns: 1fr; } .str div, .str div + div { padding-left: 0; } }
+
+blockquote { margin: var(--s66) 0 0; display: grid; grid-template-columns: 1fr 2fr; gap: var(--s33); }
+blockquote p { font-size: clamp(22px, 2.8vw, 30px); font-weight: 200; line-height: 1.3; letter-spacing: -.01em; max-width: 30ch; }
+blockquote footer { font-size: 15px; color: var(--muted); margin-top: var(--s15); }
+@media (max-width: 720px) { blockquote { grid-template-columns: 1fr; gap: var(--s15); } }
+
+/* team + contact */
+.people { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--rule); }
+.people div { padding: var(--s22) var(--s22) var(--s22) 0; }
+.people div + div { border-left: 1px solid var(--rule); padding-left: var(--s22); }
+.people b { display: block; font-weight: 300; font-size: 19px; }
+.people span { display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
+.people a { display: inline-block; margin-top: 10px; padding-block: 6px; font-variant-numeric: tabular-nums; }
+@media (max-width: 720px) {
+  .people { grid-template-columns: 1fr; }
+  .people div + div { border-left: 0; border-top: 1px solid var(--rule); padding-left: 0; }
+}
+.contact { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--s33); padding-top: var(--s33); }
+.contact > div { min-width: 0; }
+.contact .label { margin-bottom: 8px; }
+.hours { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+.hours td { padding: 4px 0; border-bottom: 1px solid var(--rule); }
+.hours td + td { text-align: right; }
+@media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
+
+footer.foot { background: var(--carbon); color: var(--on-carbon); }
+footer.foot .wrap { padding-block: var(--s33); display: flex; justify-content: space-between; gap: var(--s22); flex-wrap: wrap; font-size: 14px; }
+footer.foot ul { list-style: none; display: flex; gap: var(--s22); margin: 0; padding: 0; flex-wrap: wrap; }
+footer.foot a { display: inline-block; padding-block: 6px; }
+footer.foot .muted { color: var(--on-carbon-muted); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="https://www.jasenterprise.com/" aria-label="Jas Enterprise home">jas enterprise<small>est. 1990</small></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#machines">Machines</a></li>
+        <li class="hide-sm"><a href="#about">About</a></li>
+        <li class="hide-sm"><a href="https://www.jasenterprise.com/video-ut.html">Videos</a></li>
+        <li class="hide-sm"><a href="#contact">Contact</a></li>
+        <li><a class="btn" href="https://www.jasenterprise.com/enquiry.html">Send enquiry</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="badge label">
+          <svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8 0 16 14H0Z" fill="#f0a800"/></svg>
+          ISO 9001 · HACCP · Ahmedabad, India
+        </p>
+        <h1>Food processing machinery, built to taste hand&#8209;made.</h1>
+        <p class="lede">Grinders, chips lines, papad and chapati machines, dehydrators and full turnkey plants. Designed and built in Gujarat, shipped to more than 75 countries.</p>
+        <div class="ctas">
+          <a class="btn" href="#machines">Browse machines <span aria-hidden="true">→</span></a>
+          <a class="btn ghost" href="https://www.jasenterprise.com/enquiry.html">Request a quote</a>
+        </div>
+      </div>
+
+      <figure class="plate" style="margin:0">
+        <svg viewBox="0 0 520 380" role="img" aria-labelledby="drw-t">
+          <title id="drw-t">Line drawing of an industrial pulverizer: hopper, grinding chamber, motor and base frame with dimensions</title>
+          <!-- hopper -->
+          <path class="drw" d="M150 40h120l-30 70h-60z"/>
+          <path class="drw-thin" d="M160 52h100"/>
+          <!-- grinding chamber -->
+          <rect class="drw" x="140" y="110" width="140" height="110"/>
+          <circle class="drw" cx="210" cy="165" r="38"/>
+          <circle class="drw-thin" cx="210" cy="165" r="26"/>
+          <circle class="drw" cx="210" cy="165" r="4"/>
+          <path class="drw-thin" d="M210 127v76M172 165h76M183 138l54 54M237 138l-54 54"/>
+          <!-- discharge chute -->
+          <path class="drw" d="M190 220h40l-6 40h-28z"/>
+          <!-- shaft + motor -->
+          <path class="drw" d="M280 160h40M280 170h40"/>
+          <rect class="drw" x="320" y="128" width="110" height="74"/>
+          <path class="drw-thin" d="M332 128v74M344 128v74M356 128v74M368 128v74M380 128v74M392 128v74M404 128v74M416 128v74"/>
+          <!-- base frame -->
+          <path class="drw" d="M120 280h330M120 290h330M135 290v40M435 290v40M120 330h30M420 330h30"/>
+          <path class="drw" d="M160 220v60M260 220v60M340 202v78M410 202v78"/>
+          <!-- dimensions -->
+          <path class="drw-thin" d="M120 352h330M120 346v12M450 346v12"/>
+          <text class="dim" x="285" y="370" text-anchor="middle">1450 mm</text>
+          <path class="drw-thin" d="M478 40v290M472 40h12M472 330h12"/>
+          <text class="dim" x="492" y="190" transform="rotate(90 492 190)" text-anchor="middle">1180 mm</text>
+          <!-- callouts -->
+          <path class="drw-thin" d="M270 50l50-20h60"/><text class="dim" x="386" y="34">A · feed hopper</text>
+          <path class="drw-thin" d="M140 150l-60-30H30"/><text class="dim" x="30" y="114">B · chamber</text>
+          <path class="drw-thin" d="M196 250l-80 0"/><text class="dim" x="30" y="254">C · discharge</text>
+          <path class="drw-thin" d="M430 140l30-30"/><text class="dim" x="420" y="104" text-anchor="end">D · motor</text>
+        </svg>
+        <figcaption><span class="mono">FIG. 1 — Pulverizer, side elevation</span><span class="mono">Illustrative · not to scale</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" aria-label="Company figures">
+    <div class="wrap">
+      <div class="figs">
+        <div><b>1990</b><span>Founded in Ahmedabad</span></div>
+        <div><b>75+</b><span>Export countries</span></div>
+        <div><b>10,000+</b><span>Clients served</span></div>
+        <div><b>360°</b><span>Turnkey plant support</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="machines">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Machine catalogue</h2>
+        <p>Single machines or complete production lines. Every unit can be customised to your product, capacity and local market.</p>
+      </div>
+
+      <div class="cat">
+        <h3>Grain &amp; spice</h3>
+        <ul>
+          <li><a href="https://www.jasenterprise.com/grains-pulse-processing-machine.html"><span class="name">Grains &amp; pulse processing</span><span class="what">Cleaning, de-stoning, grading</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/crushing-pulverizing-equipment.html"><span class="name">Pulverizers &amp; hammer mills</span><span class="what">Crushing and fine grinding</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/herbs-and-spice-grinder.html"><span class="name">Herb &amp; spice grinders</span><span class="what">Masala, chilli, turmeric</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/rotating-vibrating-screen.html"><span class="name">Rotating &amp; vibrating screens</span><span class="what">Sieving and sorting powders</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/mixing-and-blending-machines.html"><span class="name">Mixing &amp; blending</span><span class="what">Dry and wet mixers</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/edible-oil-extraction-machinery.html"><span class="name">Edible oil extraction</span><span class="what">Oil expellers and filtration</span><span class="go">View →</span></a></li>
+        </ul>
+      </div>
+
+      <div class="cat">
+        <h3>Snack lines</h3>
+        <ul>
+          <li><a href="https://www.jasenterprise.com/potato-chips-production-lines.html"><span class="name">Potato chips lines</span><span class="what">Peel, slice, fry, season</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/cassava-plantain-banana-chips-production-line.html"><span class="name">Banana, plantain &amp; cassava chips</span><span class="what">Complete chips production</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/banana-wafer-machine.html"><span class="name">Banana wafer slicers</span><span class="what">Plantain slicing machines</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/namkeen-processing-machinery.html"><span class="name">Namkeen &amp; farsan</span><span class="what">Sev, gathiya, bhujia lines</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/extruded-snacks-food-making-machine.html"><span class="name">Extruded &amp; puffed snacks</span><span class="what">Extruders and puffing</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/dry-fruit-processing-machine.html"><span class="name">Nuts, seeds &amp; dry fruit</span><span class="what">Roasting, cutting, grading</span><span class="go">View →</span></a></li>
+        </ul>
+      </div>
+
+      <div class="cat">
+        <h3>Staples &amp; kitchens</h3>
+        <ul>
+          <li><a href="https://www.jasenterprise.com/chapati-making-machines.html"><span class="name">Roti &amp; chapati making</span><span class="what">Automatic chapati lines</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/chapati-machine-makers.html"><span class="name">Auto-pressing chapati</span><span class="what">Press and bake units</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/papad-processing-machines.html"><span class="name">Papad processing</span><span class="what">Dough, sheeting, cutting</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/noodle-processing-machine.html"><span class="name">Noodle processing</span><span class="what">Fresh and dried noodles</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/vermicelli-production-line.html"><span class="name">Vermicelli lines</span><span class="what">Extrusion and drying</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/commercial-kitchen-equipment.html"><span class="name">Commercial kitchen</span><span class="what">Hotels, canteens, caterers</span><span class="go">View →</span></a></li>
+        </ul>
+      </div>
+
+      <div class="cat">
+        <h3>Plants</h3>
+        <ul>
+          <li><a href="https://www.jasenterprise.com/food-processing-plants-machinery-equipment.html"><span class="name">Turnkey food processing plants</span><span class="what">Layout, install, commission</span><span class="go">View →</span></a></li>
+          <li><a href="https://www.jasenterprise.com/beverage-machineries.html"><span class="name">Beverage plants</span><span class="what">Juice and drink processing</span><span class="go">View →</span></a></li>
+          <li><a href="https://jasdehydrator.com/"><span class="name">Dehydrators</span><span class="what">Fruit, vegetable, herb drying</span><span class="go">View →</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band feature" aria-labelledby="dehy-h">
+    <div class="wrap" style="padding-block: var(--s66)">
+      <div>
+        <p class="label" style="color: var(--on-carbon-muted)">Featured range</p>
+        <h2 id="dehy-h" style="margin-top: var(--s15)">Dehydrators for fruit, vegetables and herbs.</h2>
+        <p>Tray and cabinet dryers for food processors, farms and exporters. Even airflow across every tray keeps colour, aroma and nutrients intact.</p>
+        <a class="btn" href="https://jasdehydrator.com/">Visit jasdehydrator.com <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="trays" aria-hidden="true">
+        <div><span>TRAY 01</span><span>MANGO</span></div>
+        <div><span>TRAY 02</span><span>ONION</span></div>
+        <div><span>TRAY 03</span><span>TOMATO</span></div>
+        <div><span>TRAY 04</span><span>MORINGA</span></div>
+        <div><span>TRAY 05</span><span>GINGER</span></div>
+        <div><span>TRAY 06</span><span>BANANA</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Why Jas</h2>
+        <p>Jas helps customers choose the right equipment, place it on the factory floor, and get production running. Machines are designed so food keeps the texture and taste of hand-made.</p>
+      </div>
+      <div class="str">
+        <div><h3>Infrastructure</h3><p>Our own administrative office and manufacturing facility in Ahmedabad.</p></div>
+        <div><h3>On-time delivery</h3><p>Fair pricing and on-schedule delivery have earned repeat orders from over 10,000 clients.</p></div>
+        <div><h3>Turnkey solutions</h3><p>One supplier for the whole line, from a single grinder to a complete plant.</p></div>
+        <div><h3>Customer first</h3><p>Responsive service, and machines built to suit each customer's product.</p></div>
+      </div>
+      <blockquote>
+        <span class="label">From the founder</span>
+        <div>
+          <p>“We do believe our success relies on our customer's success.”</p>
+          <footer>Mr. Sumatilal M. Sheth, Founder</footer>
+        </div>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="sec" id="contact" style="border-top: 1px solid var(--rule)">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Talk to the team</h2>
+        <p>Tell us what you make and how much you need per hour. We reply in English, Hindi or Gujarati.</p>
+      </div>
+      <div class="people">
+        <div><b>Mr. Sumatilal M. Sheth</b><span>Founder &amp; Proprietor</span><a href="tel:+919427417384">+91 94274 17384</a></div>
+        <div><b>Mr. Jigar Sheth</b><span>Chief Executive Officer</span><a href="tel:+919426088680">+91 94260 88680</a></div>
+        <div><b>Mr. Pavan Sheth</b><span>Chief Information Officer</span><a href="tel:+919426180142">+91 94261 80142</a></div>
+      </div>
+      <div class="contact">
+        <div>
+          <p class="label">Factory</p>
+          <address style="font-style: normal">27–29 Om Industrial Park Part-2,<br>Inside Paavan Industrial Estate Gate No. 2,<br>Bakrol Bujrang, Ahmedabad 382433,<br>Gujarat, India</address>
+        </div>
+        <div>
+          <p class="label">Hours (IST)</p>
+          <table class="hours">
+            <tr><td>Wed – Mon</td><td>09:00 – 19:00</td></tr>
+            <tr><td>Tuesday</td><td>Closed</td></tr>
+          </table>
+        </div>
+        <div>
+          <p class="label">Start a project</p>
+          <p style="margin-bottom: var(--s15)">Send your product, capacity and country. We'll suggest the right machines.</p>
+          <a class="btn" href="https://www.jasenterprise.com/enquiry.html">Send enquiry <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span class="muted">© Jas Enterprise, Ahmedabad · Since 1990</span>
+    <ul>
+      <li><a href="https://www.youtube.com/@jasenterprise1990">YouTube</a></li>
+      <li><a href="https://www.instagram.com/jasenterprise">Instagram</a></li>
+      <li><a href="https://www.facebook.com/jasenterprise1990/">Facebook</a></li>
+      <li><a href="https://x.com/jasenterprise90">X</a></li>
+      <li><a href="https://whatsapp.com/channel/0029VaAdwxSI1rchb9E3YF13">WhatsApp</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
